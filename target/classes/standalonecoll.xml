@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!--    Standalone List-->
+    <util:list list-class="java.util.Vector" id="mybestfriends">
+        <value>Zayn</value>
+        <value>Aun</value>
+        <value>Shan</value>
+        <value>Lawlite</value>
+    </util:list>
+
+<!--    Standalone Map-->
+    <util:map map-class="java.util.TreeMap" id="myfeestruct">
+        <entry key="Spring Framework" value="8000" />
+        <entry key="Django Framework" value="5000" />
+        <entry key="Hibernate Framework" value="2000" />
+    </util:map>
+
+<!--    Standalone Properties-->
+<!--    properties doesn't need to explicitly mention
+        class because properties is a class not an interface -->
+    <util:properties id="dbconfig">
+        <prop key="driver">com.mysql.jdbc.Driver</prop>
+        <prop key="username">dayyanali99</prop>
+        <prop key="password">janemann</prop>
+        <prop key="url">mysql:jdbc://localhost:3306/mydatabase</prop>
+    </util:properties>
+
+    <bean name="person1" class="org.learnspring.core.standalonecollection.Person">
+        <!--        <property name="friends">-->
+        <!--            <ref bean="mybestfriends" />-->
+        <!--        </property>-->
+        <property name="friends" ref="mybestfriends"/>
+    </bean>
+
+    <bean name="person2" class="org.learnspring.core.standalonecollection.Person">
+        <property name="friends" ref="mybestfriends"/>
+        <property name="feeStructure" ref="myfeestruct" />
+        <property name="properties" ref="dbconfig" />
+    </bean>
+
+</beans>

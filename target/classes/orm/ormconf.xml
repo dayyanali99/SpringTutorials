@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config />
+
+<!--    enables the @Transactional annotation-->
+    <tx:annotation-driven proxy-target-class="true" transaction-manager="transactionManager" />
+
+    <bean name="ormDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/springorm"/>
+        <property name="username" value="dayyanali99"/>
+        <property name="password" value="Ph1losopher*"/>
+    </bean>
+
+    <!--    sessionFactory  -->
+    <bean name="factory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="ormDataSource"/>
+
+        <!--        hibernate properties    -->
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.format_sql">true</prop>
+            </props>
+        </property>
+
+        <!--        annotated classes   -->
+        <property name="annotatedClasses">
+            <list>
+                <value>org.learnspring.orm.entities.Student</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean name="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+        <property name="sessionFactory" ref="factory"/>
+    </bean>
+
+    <bean name="studentDAO" class="org.learnspring.orm.dao.StudentDAOImpl">
+<!--        <property name="hibernateTemplate" ref="hibernateTemplate"/>-->
+    </bean>
+
+<!--    transactionManager needed to write into database-->
+<!--    @Transactional anno is used for this purpose on the methods accessing database-->
+    <bean name="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="factory" />
+    </bean>
+
+</beans>

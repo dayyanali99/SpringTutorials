@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--    Bean using property/setter injection-->
+    <bean name="student1" class="org.learnspring.core.setterinjection.Student">
+        <property name="studentId" value="8452"/>
+        <property name="studentName" value="Dayyan Ali"/>
+        <property name="studentAddress" value="Karachi"/>
+    </bean>
+
+<!--    Bean property/setter injection using p schema-->
+    <bean name="student2" class="org.learnspring.core.setterinjection.Student"
+          p:studentId="9836"
+          p:studentName="Shamoon Ali"
+          p:studentAddress="Karachi" />
+
+</beans>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    <bean name="add" class="Addition"-->
+<!--    c:a="24" c:b="52" />-->
+
+<!--    Spring Container searches constructors from top to bottom until it finds suitable constructor -->
+<!--    UNLESS there is a String constructor given, then it will call that regardless of its order-->
+
+
+    <bean name="add" class="org.learnspring.core.constructorinjection.ambiguityproblem.Addition">
+<!--        mentioning type will resolve the ambiguity problem and call the appropriate-->
+<!--        constructor-->
+        <constructor-arg  value="23" type="double" index="1" />
+        <constructor-arg  value="54" type="double" index="0" />
+<!--        index refers to the order of parameter list from left to right-->
+<!--        e.g here index 1 means b-->
+    </bean>
+
+</beans>

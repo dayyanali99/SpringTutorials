@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="FacetManager">
+    <facet type="Spring" name="Spring">
+      <configuration>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/target/classes/stdconfig.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/stdconfig.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/collectionconf.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/refconf.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/contructorinjection.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/constructorinjection.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/ambiguityprob.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/lifecycle.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/propertyinjection.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/autowiring.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/standalonecoll.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/stereotype.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/exprlang.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/removecompletexml.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/jdbcconfig.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/org/learnspring/jdbc/JdbcConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/resources/ormconf.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/orm/ormconf.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/org/learnspring/orm/ORMConfig.java</file>
+        </fileset>
+      </configuration>
+    </facet>
+  </component>
+</module>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config />
+
+<!--    XML AUTOWIRING-->
+
+    <bean name="address1" class="org.learnspring.core.autowiring.xmlautowiring.Address"
+          p:street="F-Area" p:city="Karachi"/>
+
+    <bean name="address" class="org.learnspring.core.autowiring.xmlautowiring.Address"
+          p:street="Cantt Bazar" p:city="Karachi"/>
+
+<!--    byName searches if variable name matches the bean name, if yes, it injects it-->
+<!--    byType searches if the Type of data member matches a type in XML-->
+<!--    constructor method used byName then calls the constructor for setting value-->
+    <bean name="emp1" class="org.learnspring.core.autowiring.xmlautowiring.Employee" autowire="byName" />
+
+<!--    ANNOTATION AUTOWIRING-->
+
+    <bean name="address2" class="org.learnspring.core.autowiring.annotationautowiring.Address"
+          p:street="Cantt Bazar" p:city="Karachi" />
+
+    <bean name="address3" class="org.learnspring.core.autowiring.annotationautowiring.Address"
+          p:street="Phase-2" p:city="Karachi"/>
+
+    <bean name="emp2" class="org.learnspring.core.autowiring.annotationautowiring.Employee" />
+
+</beans>
